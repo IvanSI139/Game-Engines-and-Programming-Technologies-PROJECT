@@ -17,9 +17,22 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false; // Is the player currently dashing?
     private float dashTime = 0f; // Timer for the dash duration
 
+    [Header("Attack")]
+    [SerializeField] private float range;
+    [SerializeField] private float colliderDistance;
+    [SerializeField] private int damage;
+    [SerializeField] private CapsuleCollider2D CapsuleCollider;
+    [SerializeField] private LayerMask EnemyLayer;
+
+
+
+    private Animator anim;//animator
+    private Health currentHealth;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -40,6 +53,12 @@ public class PlayerController : MonoBehaviour
         else if (moveInput < 0)
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
+        anim.SetBool("moving", moveInput != 0);
+        anim.SetBool("grounded", isGrounded);
+        anim.SetBool("Attack", false);
+
+
+
         // Jumping
         if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
         {
@@ -49,6 +68,16 @@ public class PlayerController : MonoBehaviour
 
         // Start Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
+        {
+            StartDash();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.K) && isGrounded)
         {
             StartDash();
         }
@@ -77,6 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         isDashing = true;
         dashTime = dashDuration;
+        anim.SetBool("dashing", isDashing);
     }
 
     // Perform Dash Logic
@@ -94,6 +124,44 @@ public class PlayerController : MonoBehaviour
         if (dashTime <= 0)
         {
             isDashing = false;
+            anim.SetBool("dashing", isDashing);
         }
     }
+
+    void Attack()
+    {
+        anim.SetBool("Attack", true);
+    }
+
+
+    public bool EnemyInRange()
+    {
+        RaycastHit2D hit =
+                Physics2D.CapsuleCast(CapsuleCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+                new Vector3(CapsuleCollider.bounds.size.x * range, CapsuleCollider.bounds.size.y, CapsuleCollider.bounds.size.z),
+                0, 0, Vector2.left, EnemyLayer);
+
+        if (hit.collider != null)
+        {
+            currentHealth = hit.transform.GetComponent<Health>();
+        }
+
+
+        return hit.collider != null;
+    }
+    private void DamageEnemy()
+    {
+        if (EnemyInRange())
+        {
+            currentHealth.TakeDamage(damage);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(CapsuleCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(CapsuleCollider.bounds.size.x * range, CapsuleCollider.bounds.size.y, CapsuleCollider.bounds.size.z));
+    }
+
 }
