@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;//animator
     private bool dead;
+    Renderer m_Renderer;
 
     [Header("iFrames")]
     //when hurt
@@ -21,6 +22,15 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         dead = false;
+        m_Renderer = GetComponent<Renderer>();
+    }
+
+    private void Update()
+    {
+        if (dead && !m_Renderer.isVisible) 
+        {
+            gameObject.SetActive(false);
+        }
     }
     public void TakeDamage(float _damage)
     {

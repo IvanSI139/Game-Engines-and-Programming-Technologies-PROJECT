@@ -165,4 +165,22 @@ public class PlayerController : MonoBehaviour
             new Vector3(CapsuleCollider.bounds.size.x * range, CapsuleCollider.bounds.size.y, CapsuleCollider.bounds.size.z));
     }
 
+    public void Save(ref PlayerSaveData data)
+    {
+        data.Position = transform.position;
+    }
+
+    public void Load(PlayerSaveData data)
+    {
+        transform.position = data.Position; 
+    }
+
+}
+
+
+[System.Serializable]
+
+public struct PlayerSaveData
+{
+    public Vector3 Position;
 }

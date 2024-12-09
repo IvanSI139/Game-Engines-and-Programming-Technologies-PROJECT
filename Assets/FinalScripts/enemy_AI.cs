@@ -17,11 +17,13 @@ public class enemy_AI : MonoBehaviour
     private Health currentHealth;
 
     private EnemyPatrol enemyPatrol;
+    private FolowPlayer folowPlayer;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        folowPlayer = GetComponentInParent<FolowPlayer>();
     }
 
     private void Update()
@@ -42,6 +44,11 @@ public class enemy_AI : MonoBehaviour
         if (enemyPatrol != null)
         {
             enemyPatrol.enabled = !PlayerInSight();
+        }
+
+        if (folowPlayer != null)
+        {
+            folowPlayer.enabled = !PlayerInSight();
         }
     }
 
