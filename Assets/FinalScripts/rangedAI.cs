@@ -41,9 +41,15 @@ public class rangedAI : MonoBehaviour
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
-                anim.SetTrigger("Attack");
+                anim.SetBool("Attack", true); ;
             }
 
+
+        }
+
+        else
+        {
+            anim.SetBool("Attack", false);
         }
 
         if (enemyPatrol != null)
