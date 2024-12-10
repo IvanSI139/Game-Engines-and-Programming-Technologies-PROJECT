@@ -71,6 +71,13 @@ public class Health : MonoBehaviour
 
     }
 
+    public void Heal(float amount)
+    {
+        if (dead) return; // Prevent healing if the player is dead.
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, startingHealth);
+        Debug.Log($"Healed by {amount}. Current health: {currentHealth}");
+    }
+
     public void Save(ref PlayerHealtData data)
     {
         data.currentHealth = currentHealth;
