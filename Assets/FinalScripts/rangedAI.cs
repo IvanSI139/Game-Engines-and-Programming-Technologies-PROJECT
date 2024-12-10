@@ -101,8 +101,26 @@ public class rangedAI : MonoBehaviour
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
-    
 
+    public void Save(ref RangedEData data)
+    {
+        data.Position = transform.position;
+        data.cooldownTimer = cooldownTimer;
+    }
 
+    public void Load(RangedEData data)
+    {
+        transform.position = data.Position;
+        cooldownTimer = data.cooldownTimer;
+    }
+
+}
+
+[System.Serializable]
+
+public struct RangedEData
+{
+    public Vector3 Position;
+    public float cooldownTimer;
 }
 

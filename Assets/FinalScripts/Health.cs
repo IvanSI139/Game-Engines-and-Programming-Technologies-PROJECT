@@ -18,9 +18,27 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
+        GameManeger.Instance.Health = this;
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         dead = false;
+    }
+
+    private void Update()
+    {
+        if (dead && currentHealth > 0) 
+        {
+            dead = false;
+
+            foreach (Behaviour component in components)
+            {
+                component.enabled = true;
+            }
+
+            anim.SetTrigger("Load");
+
+
+        }
     }
     public void TakeDamage(float _damage)
     {
@@ -50,5 +68,23 @@ public class Health : MonoBehaviour
 
             }
         }
+
     }
+
+    public void Save(ref PlayerHealtData data)
+    {
+        data.currentHealth = currentHealth;
+    }
+
+    public void Load(PlayerHealtData data)
+    {
+        currentHealth = data.currentHealth;
+    }
+}
+
+[System.Serializable]
+
+public struct PlayerHealtData
+{
+    public float currentHealth;
 }

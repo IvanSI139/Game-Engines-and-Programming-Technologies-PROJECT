@@ -53,4 +53,25 @@ public class EnemyProjectile : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public void Save(ref EProjectileData data)
+    {
+        data.Position = transform.position;
+        data.lifetime = lifetime;
+    }
+
+    public void Load(EProjectileData data)
+    {
+        transform.position = data.Position;
+        lifetime = data.lifetime;
+
+
+    }
+}
+
+[System.Serializable]
+
+public struct EProjectileData
+{
+    public Vector3 Position;
+    public float lifetime;
 }

@@ -58,4 +58,26 @@ public class projectile : MonoBehaviour
     {
         gameObject.SetActive(false);   
     }
+
+    public void Save(ref ProjectileData data)
+    {
+        data.Position = transform.position;
+        data.lifetime = lifetime;
+    }
+
+    public void Load(ProjectileData data)
+    {
+        transform.position = data.Position;
+        lifetime = data.lifetime;
+
+
+    }
+}
+
+[System.Serializable]
+
+public struct ProjectileData
+{
+    public Vector3 Position;
+    public float lifetime;
 }

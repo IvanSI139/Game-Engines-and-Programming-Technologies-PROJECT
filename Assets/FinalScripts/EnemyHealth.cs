@@ -31,6 +31,20 @@ public class EnemyHealth : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+            if (dead && currentHealth > 0)
+            {
+                dead = false;
+
+                gameObject.SetActive(true);
+
+                foreach (Behaviour component in components)
+                {
+                    component.enabled = true;
+                }
+
+                anim.SetTrigger("Load");
+        }
     }
     public void TakeDamage(float _damage)
     {
@@ -61,4 +75,25 @@ public class EnemyHealth : MonoBehaviour
             }
         }
     }
+
+    public void Save(ref EnemyrHealtData data)
+    {
+        data.EnemyHealth = currentHealth;
+
+        Debug.Log($"Saving EnemyHealth: {data.EnemyHealth}");
+    }
+
+    public void Load(EnemyrHealtData data)
+    {
+        currentHealth = data.EnemyHealth;
+
+        Debug.Log($"Loaded EnemyHealth: {data.EnemyHealth}");
+    }
+}
+
+[System.Serializable]
+
+public struct EnemyrHealtData
+{
+    public float EnemyHealth;
 }

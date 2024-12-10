@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -54,12 +55,12 @@ public class enemy_AI : MonoBehaviour
 
     public bool PlayerInSight()
     {
-        RaycastHit2D hit = 
+        RaycastHit2D hit =
             Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
-            0,Vector2.left,0,playerLayer );
+            0, Vector2.left, 0, playerLayer);
 
-       if (hit.collider != null) 
+        if (hit.collider != null)
         {
             currentHealth = hit.transform.GetComponent<Health>();
         }
@@ -83,5 +84,29 @@ public class enemy_AI : MonoBehaviour
             currentHealth.TakeDamage(damage);
         }
     }
+
+    public void Save(ref MeleeEData data)
+    {
+        data.Position = transform.position;
+        data.cooldownTimer = cooldownTimer;
+    }
+
+    public void Load(MeleeEData data)
+    {
+        transform.position = data.Position;
+        cooldownTimer = data.cooldownTimer;
+    }
+}
+[System.Serializable]
+public struct SceneMaleeEData
+{
+    public MeleeEData[] Enemies; 
+}
+
+[System.Serializable]
+ public struct MeleeEData
+{
+    public Vector3 Position;
+    public float cooldownTimer;
 }
 
