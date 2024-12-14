@@ -16,6 +16,11 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
+    [SerializeField] private ParticleSystem BleadingParticles;
+    private Vector2 attackDirection;
+    public string playerTag = "Player";
+
+    private ParticleSystem BleadingParticlesInstance;
 
     private void Awake()
     {
@@ -54,11 +59,13 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             //player hurt;
+            Particlles();
         }
         else
         {
             if (!dead)
             {
+                Particlles();
                 anim.SetTrigger("Death");
 
 
@@ -74,6 +81,49 @@ public class EnemyHealth : MonoBehaviour
 
             }
         }
+    }
+
+    private void Particlles()
+    {
+        GameObject closestPlayer = FindClosestWithTag(playerTag);
+        if (closestPlayer != null)
+        {
+            float scaleX = closestPlayer.transform.localScale.x;
+            Debug.Log("Closest Player's Scale X: " + scaleX);
+ 
+                attackDirection = (closestPlayer.transform.position - transform.position).normalized;
+
+
+        }
+        else
+        {
+            Debug.Log("No enemies found!");
+        }
+
+
+        Quaternion spawnRotation = Quaternion.FromToRotation(Vector2.right, attackDirection);
+
+        BleadingParticlesInstance = Instantiate(BleadingParticles, transform.position, spawnRotation);
+    }
+
+    private GameObject FindClosestWithTag(string tag)
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag(tag);
+        GameObject closest = null;
+        float shortestDistance = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+
+        foreach (GameObject player in players)
+        {
+            float distance = Vector3.Distance(currentPosition, player.transform.position);
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                closest = player;
+            }
+        }
+
+        return closest;
     }
 
     public void Save(ref EnemyrHealtData data)

@@ -172,6 +172,8 @@ MonoBehaviour:
   - {fileID: 5089951420649380882}
   - {fileID: 793281287440595967}
   - {fileID: 5043643895952822441}
+  BleadingParticles: {fileID: 4616651717976611988, guid: cc28fc2d254bf2d4195dc2ff36d664d5, type: 3}
+  playerTag: Player
 --- !u!114 &5089951420649380882
 MonoBehaviour:
   m_ObjectHideFlags: 0

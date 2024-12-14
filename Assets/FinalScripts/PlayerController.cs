@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;//animator
     private Health currentHealth;
+    private Inventory inventory;
+
+    private int count;
 
     void Start()
     {
@@ -82,6 +85,9 @@ public class PlayerController : MonoBehaviour
         {
             StartDash();
         }
+
+
+       
     }
 
     void OnCollisionEnter2D(Collision2D collision)

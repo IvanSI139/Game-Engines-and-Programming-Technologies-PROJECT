@@ -1739,6 +1739,8 @@ MonoBehaviour:
   startingHealth: 10
   components:
   - {fileID: 1406933547}
+  BleadingParticles: {fileID: 4616651717976611988, guid: cc28fc2d254bf2d4195dc2ff36d664d5, type: 3}
+  enemyTag: Enemy
 --- !u!95 &1406933549
 Animator:
   serializedVersion: 5
@@ -1870,6 +1872,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 975864961036215201, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
+      propertyPath: startingHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 975864961036215201, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
+      propertyPath: BleadingParticles
+      value: 
+      objectReference: {fileID: 4616651717976611988, guid: cc28fc2d254bf2d4195dc2ff36d664d5, type: 3}
+    - target: {fileID: 975864961036215201, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
       propertyPath: components.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -1955,7 +1965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460904078894242640, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
       propertyPath: damage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7460904078894242640, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
       propertyPath: attackCooldown
