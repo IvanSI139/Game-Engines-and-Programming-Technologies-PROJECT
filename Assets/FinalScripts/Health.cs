@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     private bool dead;
 
     [Header("iFrames")]
-    //when hurt
+    [SerializeField] private float iFramesDuration;
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
             {
                 component.enabled = true;
             }
-
+            anim.SetBool("Die", false);
             anim.SetTrigger("Load");
 
 
@@ -55,13 +55,14 @@ public class Health : MonoBehaviour
         {
             //player hurt;
             Particlles();
+            anim.SetTrigger("hurt");
+            StartCoroutine(Invulnerability());
         }
         else
         {
             if (!dead)
             {
                 Particlles();
-                anim.SetTrigger("Death");
 
 
                 dead = true;
@@ -73,6 +74,9 @@ public class Health : MonoBehaviour
                 {
                     component.enabled = false;
                 }
+
+                anim.SetTrigger("Death");
+                anim.SetBool("Die",true);
 
             }
         }
@@ -129,6 +133,15 @@ public class Health : MonoBehaviour
         }
 
         return closest;
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        Physics2D.IgnoreLayerCollision(10,11, true);
+
+        yield return new WaitForSeconds(iFramesDuration);
+
+        Physics2D.IgnoreLayerCollision(10, 11, false);
     }
     public void Save(ref PlayerHealtData data)
     {

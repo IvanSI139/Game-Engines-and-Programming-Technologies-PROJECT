@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 497924686}
   - component: {fileID: 497924685}
   - component: {fileID: 497924688}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1694,7 +1694,7 @@ Transform:
   m_GameObject: {fileID: 1406933542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: -0.746, z: 0}
+  m_LocalPosition: {x: -0.938, y: -0.829, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1719,7 +1719,7 @@ MonoBehaviour:
   dashDuration: 0.2
   range: 1.27
   colliderDistance: 0.18
-  damage: 1
+  damage: 2
   CapsuleCollider: {fileID: 1406933543}
   EnemyLayer:
     serializedVersion: 2
@@ -1737,6 +1737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 10
+  iFramesDuration: 2
   components:
   - {fileID: 1406933547}
   BleadingParticles: {fileID: 4616651717976611988, guid: cc28fc2d254bf2d4195dc2ff36d664d5, type: 3}
@@ -1873,7 +1874,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 975864961036215201, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
       propertyPath: startingHealth
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 975864961036215201, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
       propertyPath: BleadingParticles
@@ -1969,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460904078894242640, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
       propertyPath: attackCooldown
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8340170922276318234, guid: bd7c2a6918bb0864185378f397ccbc40, type: 3}
       propertyPath: m_Name
@@ -2002,7 +2003,7 @@ GameObject:
   - component: {fileID: 1925694021}
   - component: {fileID: 1925694020}
   - component: {fileID: 1925694019}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2244,7 +2245,7 @@ GameObject:
   - component: {fileID: 2017179683}
   - component: {fileID: 2017179682}
   - component: {fileID: 2017179681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}

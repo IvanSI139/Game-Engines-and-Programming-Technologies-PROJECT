@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private int jumpCount = 0; // Track number of jumps
     public int maxJumps = 2; // Maximum allowed jumps
     private bool isGrounded = false; // Check if the player is on the ground
+    private bool onWall = false;
 
     // Dash Variables
     public float dashSpeed = 15f; // Speed of the dash
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("moving", moveInput != 0);
         anim.SetBool("grounded", isGrounded);
         anim.SetBool("Attack", false);
+        anim.SetBool("wall", onWall);
 
 
 
@@ -98,6 +100,36 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             jumpCount = 0;
         }
+
+        int wallLayer = LayerMask.NameToLayer("Wall");
+        if (collision.gameObject.layer == wallLayer)
+        {
+            Debug.Log("Player collided with a wall!");
+
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Vector2 normal = contact.normal;
+
+                if (Vector2.Dot(normal, Vector2.up) > 0.5f)
+                {
+                    Debug.Log("Player collided with the top of the wall!");
+                }
+                else if (Vector2.Dot(normal, Vector2.down) > 0.5f)
+                {
+                    Debug.Log("Player collided with the bottom of the wall!");
+                }
+                else if (Vector2.Dot(normal, Vector2.left) > 0.5f)
+                {
+                    Debug.Log("Player collided with the left side of the wall!");
+                    onWall = true;
+                }
+                else if (Vector2.Dot(normal, Vector2.right) > 0.5f)
+                {
+                    Debug.Log("Player collided with the right side of the wall!");
+                    onWall = true;
+                }
+            }
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -105,6 +137,13 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = false;
+        }
+
+        int wallLayer = LayerMask.NameToLayer("Wall");
+        if (collision.gameObject.layer == wallLayer)
+        {
+            Debug.Log("Player left a wall!");
+            onWall = false;
         }
     }
 
