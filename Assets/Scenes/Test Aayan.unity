@@ -2533,10 +2533,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42eccd5dae3e3d45afacc51ae240b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
   jumpForce: 6
   maxJumps: 2
-  dashSpeed: 4
+  dashSpeed: 5
   dashDuration: 0.2
   range: 1.27
   colliderDistance: 0.18
@@ -2558,9 +2558,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 10
+  iFramesDuration: 0
   components:
   - {fileID: 1406933547}
   BleadingParticles: {fileID: 4616651717976611988, guid: cc28fc2d254bf2d4195dc2ff36d664d5, type: 3}
+  enemyTag: Enemy
 --- !u!95 &1406933549
 Animator:
   serializedVersion: 5

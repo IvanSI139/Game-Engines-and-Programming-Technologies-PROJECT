@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 65ae6f92f1b12794a833b4c36ae72a48
   - enabled: 1
-    path: Assets/Scenes/Test Aayan.unity
-    guid: 8c1977d391c371442ab6cac801030140
+    path: Assets/Scenes/Village.unity
+    guid: e8de2b6b15444d047b038300617bf0d3
+  - enabled: 1
+    path: Assets/Scenes/Underground.unity
+    guid: 262ddae7176983f45816f0b0e23ee24b
   m_configObjects: {}
