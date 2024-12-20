@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     public int maxJumps = 2; // Maximum allowed jumps
     private bool isGrounded = false; // Check if the player is on the ground
     private bool onWall = false;
+    private float vertical;
+    [SerializeField] private float climbSpeed;
+
+    private bool isLadder;
+    private bool isClimbing;
 
     // Dash Variables
     public float dashSpeed = 15f; // Speed of the dash
@@ -59,11 +64,38 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
         anim.SetBool("moving", moveInput != 0);
-        anim.SetBool("grounded", isGrounded);
         anim.SetBool("Attack", false);
         anim.SetBool("wall", onWall);
 
+        vertical = Input.GetAxis("Vertical");
 
+        if (isLadder && Mathf.Abs(vertical) > 0f)
+        {
+            isClimbing = true;
+        }
+
+        if (isClimbing)
+        {
+            if (Mathf.Abs(vertical) > 0f)
+            {
+                anim.SetBool("Ladder", true);
+                anim.SetBool("grounded", true);
+                anim.speed = 1f;
+            }
+            else
+            {
+                anim.speed = 0f;
+            }
+
+        }
+        else
+        {
+            anim.SetBool("Ladder", false);
+            anim.SetBool("grounded", isGrounded);
+            anim.speed = 1f;
+        }
+
+ 
 
         // Jumping
         if (Input.GetButtonDown("Jump") && jumpCount < maxJumps)
@@ -92,14 +124,29 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    private void FixedUpdate()
+    {
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, vertical * climbSpeed);
+        }
+        else
+        {
+            rb.gravityScale = 2f;
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
+
         // Reset jump count when touching the ground
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
             jumpCount = 0;
         }
+
 
         int wallLayer = LayerMask.NameToLayer("Wall");
         if (collision.gameObject.layer == wallLayer)
@@ -139,12 +186,33 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
+
         int wallLayer = LayerMask.NameToLayer("Wall");
         if (collision.gameObject.layer == wallLayer)
         {
             Debug.Log("Player left a wall!");
             onWall = false;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        int LadderlLayer = LayerMask.NameToLayer("Ladder");
+        if (collision.gameObject.layer == LadderlLayer)
+        {
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        int LadderlLayer = LayerMask.NameToLayer("Ladder");
+        if (collision.gameObject.layer == LadderlLayer)
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
+
     }
 
     // Start Dash Logic

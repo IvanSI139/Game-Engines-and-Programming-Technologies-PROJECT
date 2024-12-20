@@ -18,7 +18,7 @@ public class Time_Shift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("space key was pressed");
 
