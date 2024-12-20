@@ -29,7 +29,7 @@ public class InteractableObject : MonoBehaviour
     void Update()
     {
         // Check if the player is in range and presses the "E" key
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             LoadNextScene();
         }

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 65ae6f92f1b12794a833b4c36ae72a48
   - enabled: 1
+    path: Assets/Scenes/Ivan Vilage.unity
+    guid: e4c8bb3124434b24e98b2fc3d7525e1e
+  - enabled: 0
     path: Assets/Scenes/Village.unity
     guid: e8de2b6b15444d047b038300617bf0d3
   - enabled: 1

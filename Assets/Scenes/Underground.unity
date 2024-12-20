@@ -7775,7 +7775,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  Player: {fileID: 0}
+  Player: {fileID: 1406933546}
   enemy: {fileID: 3572902117612990681}
   speed: 2
   anim: {fileID: 3420643318589812048}
@@ -10208,6 +10208,7 @@ MonoBehaviour:
   moveSpeed: 3
   jumpForce: 5.5
   maxJumps: 2
+  climbSpeed: 0
   dashSpeed: 5
   dashDuration: 0.2
   range: 1.27
@@ -12730,7 +12731,7 @@ Transform:
   m_GameObject: {fileID: 2679530787443002031}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0.12, z: 0}
+  m_LocalPosition: {x: 0.29, y: -0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13119,7 +13120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 462434960, guid: 90c7332c857b6b043bad30766e14a946, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fce97958da54a4c40a77191a048fa121, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13281,7 +13282,7 @@ Animator:
   m_GameObject: {fileID: 7538458021477040276}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b40bd0e5c2bd2b141a1471c568e1e2a9, type: 2}
+  m_Controller: {fileID: 9100000, guid: dc3241c8250be754da32d7d0e4b3a433, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14104,7 +14105,7 @@ Transform:
   m_GameObject: {fileID: 510083588734440766}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.29, y: -4.223, z: 0}
+  m_LocalPosition: {x: 29.29, y: -3.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14571,7 +14572,7 @@ GameObject:
   - component: {fileID: 7285552787530445229}
   - component: {fileID: 1656395993089410921}
   m_Layer: 11
-  m_Name: Evil Wizard
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14670,18 +14671,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024178505, y: -0.012106687}
+  m_Offset: {x: 0.024178505, y: -0.08244598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4, y: 1.4}
+    oldSize: {x: 1.22, y: 1.17}
     newSize: {x: 1.4, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2920704, y: 0.5183353}
+  m_Size: {x: 0.2920704, y: 0.7107432}
   m_EdgeRadius: 0
 --- !u!114 &8624133427606319259
 MonoBehaviour:
