@@ -31,6 +31,7 @@ public class rangedAI : MonoBehaviour
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
         folowPlayer = GetComponentInParent<FolowPlayer>();
+        anim.SetBool("Attack", false);
     }
 
     private void Update()
@@ -43,7 +44,12 @@ public class rangedAI : MonoBehaviour
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
-                anim.SetBool("Attack", true); ;
+                anim.SetBool("Attack", true);
+            }
+
+            else
+            {
+                anim.SetBool("Attack", false);
             }
 
 

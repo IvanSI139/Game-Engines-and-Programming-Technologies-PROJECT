@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class BossBar : MonoBehaviour
 {
-    [SerializeField] private Health playerHealth;
+    [SerializeField] private Health bossHealth;
     [SerializeField] private Image totalHealthBar;
     [SerializeField] private Image currentHealthBar;
 
     private void Start()
     {
-        totalHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        totalHealthBar.fillAmount = bossHealth.currentHealth / 10;
     }
     private void Update()
     {
-        currentHealthBar.fillAmount = playerHealth.currentHealth / 10;
+        currentHealthBar.fillAmount = bossHealth.currentHealth / 10;
     }
 }
