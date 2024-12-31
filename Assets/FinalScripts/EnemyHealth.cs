@@ -126,6 +126,12 @@ public class EnemyHealth : MonoBehaviour
         return closest;
     }
 
+
+    public void dell() 
+    {
+        gameObject.SetActive(false);
+    }
+
     public void Save(ref EnemyrHealtData data)
     {
         data.EnemyHealth = currentHealth;

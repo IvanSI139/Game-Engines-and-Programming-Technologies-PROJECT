@@ -1276,12 +1276,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338375518}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36ed4f826fa539b46a54f2662ee44bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: {fileID: 1406933548}
+  bossHealth: {fileID: 8569852782969197014}
   totalHealthBar: {fileID: 575208462}
   currentHealthBar: {fileID: 250039460}
 --- !u!1 &401695001
@@ -17732,7 +17732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e7ffffac43b52458377a435b96668b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 2
+  attackCooldown: 3
   range: 7
   damage: 2
   firePoint: {fileID: 589511663242119441}
@@ -17851,6 +17851,7 @@ GameObject:
   - component: {fileID: 2180424974291469521}
   - component: {fileID: 8569852782969197012}
   - component: {fileID: 3420643318589812048}
+  - component: {fileID: 8569852782969197014}
   - component: {fileID: 8569852782969197013}
   - component: {fileID: 7285552787530445229}
   - component: {fileID: 1656395993089410921}
@@ -17974,7 +17975,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7538458021477040276}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c217eccd57f286c45a382e56e3f97927, type: 3}
   m_Name: 
@@ -17982,6 +17983,24 @@ MonoBehaviour:
   startingHealth: 10
   components:
   - {fileID: 7285552787530445229}
+  BleadingParticles: {fileID: 4616651717976611988, guid: cc28fc2d254bf2d4195dc2ff36d664d5, type: 3}
+  playerTag: Player
+--- !u!114 &8569852782969197014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538458021477040276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ca6442b53f8194d807296fc5c1c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 10
+  components:
+  - {fileID: 7285552787530445229}
+  - {fileID: 1656395993089410921}
   BleadingParticles: {fileID: 4616651717976611988, guid: cc28fc2d254bf2d4195dc2ff36d664d5, type: 3}
   playerTag: Player
 --- !u!114 &8624133427606319259

@@ -193,6 +193,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bosshitpointsog__r17462505161_4
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 183
+        width: 331
+        height: 12
+      alignment: 9
+      pivot: {x: 0.47517467, y: 0.5878021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419289bb0bf78fa46994c09d98d96b0f
+      internalID: 1852631683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -208,6 +229,7 @@ TextureImporter:
       bosshitpointsog__r17462505161_1: 1918435919
       bosshitpointsog__r17462505161_2: 1515663043
       bosshitpointsog__r17462505161_3: -1007592416
+      bosshitpointsog__r17462505161_4: 1852631683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

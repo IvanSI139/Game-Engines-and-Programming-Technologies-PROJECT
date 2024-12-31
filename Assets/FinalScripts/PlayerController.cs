@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CapsuleCollider2D CapsuleCollider;
     [SerializeField] private LayerMask EnemyLayer;
     private EnemyHealth EnemyHealth;
+    private BossHealth BossHealth;
 
 
 
@@ -258,6 +259,7 @@ public class PlayerController : MonoBehaviour
         if (hit.collider != null)
         {
             EnemyHealth = hit.transform.GetComponent<EnemyHealth>();
+            BossHealth = hit.transform.GetComponent<BossHealth>();
         }
 
 
@@ -268,6 +270,7 @@ public class PlayerController : MonoBehaviour
         if (EnemyInRange())
         {
             EnemyHealth.TakeDamage(damage);
+            BossHealth .TakeDamage(damage);
         }
     }
 
