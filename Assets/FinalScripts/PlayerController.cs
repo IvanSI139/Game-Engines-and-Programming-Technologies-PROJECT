@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [Header("Attack")]
     [SerializeField] private float range;
     [SerializeField] private float colliderDistance;
-    [SerializeField] private int damage;
+    [SerializeField] private float damage;
     [SerializeField] private CapsuleCollider2D CapsuleCollider;
     [SerializeField] private LayerMask EnemyLayer;
     private EnemyHealth EnemyHealth;
@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpCount++;
+            anim.SetBool("grounded", false);
+            anim.SetBool("moving", false);
         }
 
         // Start Dash
@@ -121,8 +123,13 @@ public class PlayerController : MonoBehaviour
             StartDash();
         }
 
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Attack();
+        }
 
-       
+
+
     }
 
     private void FixedUpdate()

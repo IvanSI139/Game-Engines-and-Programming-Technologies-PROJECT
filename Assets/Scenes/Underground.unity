@@ -13927,7 +13927,7 @@ MonoBehaviour:
   climbSpeed: 0
   dashSpeed: 5
   dashDuration: 0.2
-  range: 1.27
+  range: 1.54
   colliderDistance: 0.18
   damage: 1
   CapsuleCollider: {fileID: 1406933543}
@@ -17732,7 +17732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e7ffffac43b52458377a435b96668b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 3
+  attackCooldown: 8
   range: 7
   damage: 2
   firePoint: {fileID: 589511663242119441}
