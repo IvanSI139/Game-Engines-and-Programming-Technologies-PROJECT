@@ -1,3 +1,14 @@
+
+#!/usr/bin/env python3
+"""
+Example script to parse and manipulate a Unity GraphicsSettings YAML snippet.
+Requires PyYAML: pip install PyYAML
+"""
+
+import yaml
+
+# The Unity YAML snippet you provided, stored as a multiline string:
+yaml_input = r"""
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!30 &1
@@ -62,3 +73,47 @@ GraphicsSettings:
   m_LightsUseColorTemperature: 0
   m_DefaultRenderingLayerMask: 1
   m_LogWhenShaderIsCompiled: 0
+"""
+
+def main():
+    # Parse the YAML text, ignoring the leading special lines for now.
+    # We'll re-prepend them after we manipulate the data.
+    # We'll use safe_load_all() because Unity YAML often has multiple documents.
+    data_docs = list(yaml.safe_load_all(yaml_input))
+    
+    if not data_docs:
+        print("[Error] No documents found in the YAML input.")
+        return
+    
+    # We expect a single doc with a key "GraphicsSettings"
+    doc = data_docs[0]
+    # doc structure might look like:
+    # { 'GraphicsSettings': { ... the fields ... } }
+    
+    graphics_settings = doc.get("GraphicsSettings", {})
+    if not graphics_settings:
+        print("[Warning] 'GraphicsSettings' not found in parsed data.")
+    else:
+        # Example: change m_LightsUseLinearIntensity from 0 to 1
+        graphics_settings["m_LightsUseLinearIntensity"] = 1
+        
+        # Example: change the default rendering path from 1 to 3 (e.g., “Deferred” to “Scriptable Render Pipeline” or so).
+        # The actual meaning depends on Unity’s enum. We'll do it just as a demonstration:
+        graphics_settings["m_DefaultRenderingPath"] = 3
+        
+    # Re-serialize the YAML. This returns just the data w/o the original special lines:
+    updated_yaml_body = yaml.dump_all([doc], default_flow_style=False, sort_keys=False)
+    
+    # Now we re-prepend the lines that Unity uses:
+    final_yaml = (
+        "%YAML 1.1\n"
+        "%TAG !u! tag:unity3d.com,2011:\n"
+        "--- !u!30 &1\n"
+        + updated_yaml_body
+    )
+    
+    print("[Modified YAML Output]:\n")
+    print(final_yaml)
+
+if __name__ == "__main__":
+    main()
