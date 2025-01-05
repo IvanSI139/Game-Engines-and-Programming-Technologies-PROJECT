@@ -28,5 +28,5 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetFloat(VolumePrefKey, value);
         PlayerPrefs.Save();
     }
-}
 
+}

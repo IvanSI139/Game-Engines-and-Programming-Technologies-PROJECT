@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance; // Singleton instance
+
+    [Header("Audio Sources")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
 
+    [Header("Audio Clips")]
     public AudioClip background;
     public AudioClip run;
     public AudioClip swordswing;
@@ -15,7 +19,21 @@ public class AudioManager : MonoBehaviour
     public AudioClip landing;
     public AudioClip jumping;
     public AudioClip ui;
+    public AudioClip dash;
 
+    private void Awake()
+    {
+        // Singleton pattern to ensure one instance
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void Start()
     {
         musicSource.clip = background;
@@ -25,13 +43,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
-        if (sfxSource != null && clip != null)
+        if (clip != null)
         {
-            sfxSource.PlayOneShot(clip); // Play the sound effect
-        }
-        else
-        {
-            Debug.LogWarning("SFX source or clip is missing!");
+            sfxSource.PlayOneShot(clip);
         }
     }
 

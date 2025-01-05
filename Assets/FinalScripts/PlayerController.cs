@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     public float moveSpeed = 5f; // Movement speed
     public float jumpForce = 10f; // Jump force
     private Rigidbody2D rb; // Reference to the Rigidbody2D
@@ -32,18 +33,27 @@ public class PlayerController : MonoBehaviour
     private EnemyHealth EnemyHealth;
     private BossHealth BossHealth;
 
-
+    [Header("SoundFX")]
+    [SerializeField] private AudioClip runSound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landingSound;
+    [SerializeField] private AudioClip dashSound;
+    [SerializeField] private AudioClip swordSwingSound;
+    [SerializeField] private AudioClip playerHurt;
 
     private Animator anim;//animator
     private Health currentHealth;
     private Inventory inventory;
+    private AudioManager audioManager;
 
     private int count;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -57,6 +67,11 @@ public class PlayerController : MonoBehaviour
         // Movement
         float moveInput = Input.GetAxis("Horizontal"); // Get left/right input
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        if (moveInput != 0 && isGrounded)
+        {
+            audioManager.PlaySFX(runSound);
+        }
+
 
         // Flip sprite based on movement direction (optional)
         if (moveInput > 0)
@@ -105,12 +120,16 @@ public class PlayerController : MonoBehaviour
             jumpCount++;
             anim.SetBool("grounded", false);
             anim.SetBool("moving", false);
+
+            audioManager.PlaySFX(jumpSound);
+
         }
 
         // Start Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
         {
             StartDash();
+            audioManager.PlaySFX(dashSound);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -153,6 +172,8 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             jumpCount = 0;
+            audioManager.PlaySFX(landingSound);
+
         }
 
 
@@ -253,6 +274,7 @@ public class PlayerController : MonoBehaviour
     void Attack()
     {
         anim.SetBool("Attack", true);
+        audioManager.PlaySFX(swordSwingSound);
     }
 
 
