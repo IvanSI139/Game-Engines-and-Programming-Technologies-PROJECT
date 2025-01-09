@@ -67,10 +67,10 @@ public class PlayerController : MonoBehaviour
         // Movement
         float moveInput = Input.GetAxis("Horizontal"); // Get left/right input
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
-        if (moveInput != 0 && isGrounded)
-        {
-            audioManager.PlaySFX(runSound);
-        }
+        //if (moveInput != 0 && isGrounded)
+        //{
+        //    audioManager.PlaySFX(runSound);
+        //}
 
 
         // Flip sprite based on movement direction (optional)
