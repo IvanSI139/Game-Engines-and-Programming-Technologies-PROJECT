@@ -14,6 +14,11 @@ public class Health : MonoBehaviour
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
 
+    private AudioManager audioManager;
+
+    [Header("SoundFX")]
+    [SerializeField] private AudioClip playerHurt;
+
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
     [SerializeField] private ParticleSystem BleadingParticles;
@@ -29,7 +34,10 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
         dead = false;
     }
-
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     private void Update()
     {
         if (dead && currentHealth > 0) 
@@ -50,13 +58,13 @@ public class Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
-
         if (currentHealth > 0)
         {
             //player hurt;
             Particlles();
             anim.SetTrigger("hurt");
             StartCoroutine(Invulnerability());
+            audioManager.PlaySFX(playerHurt);
         }
         else
         {

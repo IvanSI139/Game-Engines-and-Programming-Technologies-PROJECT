@@ -21,19 +21,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip ui;
     public AudioClip dash;
 
-    private void Awake()
-    {
-        // Singleton pattern to ensure one instance
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+
     public void Start()
     {
         musicSource.clip = background;

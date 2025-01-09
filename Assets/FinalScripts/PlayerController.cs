@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip landingSound;
     [SerializeField] private AudioClip dashSound;
     [SerializeField] private AudioClip swordSwingSound;
-    [SerializeField] private AudioClip playerHurt;
 
     private Animator anim;//animator
     private Health currentHealth;
