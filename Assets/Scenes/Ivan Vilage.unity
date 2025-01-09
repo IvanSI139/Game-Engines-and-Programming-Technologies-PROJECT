@@ -43811,7 +43811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42eccd5dae3e3d45afacc51ae240b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
   moveSpeed: 3
   jumpForce: 5.5
   maxJumps: 2
