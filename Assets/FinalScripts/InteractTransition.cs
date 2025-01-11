@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class InteractableObject : MonoBehaviour
 {
     private bool playerInRange = false;
+    public GameObject FinishScreen;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,6 +51,8 @@ public class InteractableObject : MonoBehaviour
         else
         {
             Debug.LogWarning("No more scenes to load. End of build.");
+            FinishScreen.SetActive(true);
+
         }
     }
 }

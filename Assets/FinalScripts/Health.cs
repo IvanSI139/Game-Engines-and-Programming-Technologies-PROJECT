@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
     [SerializeField] private ParticleSystem BleadingParticles;
     private Vector2 attackDirection;
     public string enemyTag = "Enemy";
+    public GameObject DeathScreen;
 
     private ParticleSystem BleadingParticlesInstance;
         
@@ -85,6 +86,7 @@ public class Health : MonoBehaviour
 
                 anim.SetTrigger("Death");
                 anim.SetBool("Die",true);
+                StartCoroutine(Deathscreen());
 
             }
         }
@@ -150,6 +152,15 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(iFramesDuration);
 
         Physics2D.IgnoreLayerCollision(10, 11, false);
+    }
+
+
+    public IEnumerator Deathscreen()
+    {
+        yield return new WaitForSeconds(1);
+
+        DeathScreen.SetActive(true);
+
     }
     public void Save(ref PlayerHealtData data)
     {

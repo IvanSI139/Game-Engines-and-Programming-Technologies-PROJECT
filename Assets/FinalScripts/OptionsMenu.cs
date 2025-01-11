@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
@@ -27,6 +28,11 @@ public class OptionsMenu : MonoBehaviour
         // Save the volume setting
         PlayerPrefs.SetFloat(VolumePrefKey, value);
         PlayerPrefs.Save();
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
