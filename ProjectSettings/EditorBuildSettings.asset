@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Underground.unity
     guid: 262ddae7176983f45816f0b0e23ee24b
+  - enabled: 1
+    path: Assets/Scenes/cave.unity
+    guid: ab0edc1853e1d1041a7e065abcdd7b27
+  - enabled: 1
+    path: Assets/Scenes/cave templ.unity
+    guid: 7056841c1c707f14fa6ef8ce124c36dd
+  - enabled: 1
+    path: Assets/Scenes/castle.unity
+    guid: 0740114b5ea4bd847b20e030e190f47b
+  - enabled: 1
+    path: Assets/Scenes/trone room.unity
+    guid: 66fda214608ca7b47bfb36942b866849
   m_configObjects: {}

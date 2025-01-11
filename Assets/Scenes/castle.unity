@@ -113521,6 +113521,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3790316015610009527, guid: 3eee484a523e65e4594159048ba543de, type: 3}
   m_PrefabInstance: {fileID: 1320419878}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1321726763
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 43.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.017553998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656540366076756450, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736740173142540885, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+      propertyPath: m_Name
+      value: TransitionWell
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7081379831354936839, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8c283954f6b6c644806fc1c1df19d6b, type: 3}
 --- !u!1 &1329550369
 GameObject:
   m_ObjectHideFlags: 0
@@ -120628,3 +120686,4 @@ SceneRoots:
   - {fileID: 1673343989}
   - {fileID: 731080670}
   - {fileID: 1401398147}
+  - {fileID: 1321726763}

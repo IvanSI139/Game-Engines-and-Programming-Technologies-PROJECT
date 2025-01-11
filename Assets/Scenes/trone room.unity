@@ -9938,7 +9938,7 @@ Tilemap:
     m_Data: {r: 3.8286e-41, g: 3.8286e-41, b: 3.8286e-41, a: 3.8286e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 0.93442965, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.049433887, b: 0, a: 1}
   m_Origin: {x: 0, y: -21, z: 0}
   m_Size: {x: 247, y: 41, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -11938,7 +11938,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 0.9372549, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.029075194, b: 0, a: 1}
   m_Origin: {x: 0, y: -15, z: 0}
   m_Size: {x: 120, y: 35, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -14843,7 +14843,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1288053503
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -14867,16 +14867,6 @@ Tilemap:
       m_TileIndex: 1
       m_TileSpriteIndex: 1
       m_TileMatrixIndex: 4
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 50, y: -3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 5
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -14965,7 +14955,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 10
+  - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: d4dd6da58bc444d43b58bab23c731b3a, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -14974,7 +14964,7 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 10
+  - m_RefCount: 9
     m_Data: {fileID: 2108684596, guid: aaa6ed922388941e8a1e8c9a7cb2a712, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -15071,7 +15061,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data:
       e00: -3.8
       e01: 0
@@ -15108,11 +15098,11 @@ Tilemap:
       e32: 1.37e-43
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 10
+  - m_RefCount: 9
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 0.9372549, b: 0, a: 1}
+  m_Color: {r: 0.46226418, g: 0.13822328, b: 0.05887327, a: 1}
   m_Origin: {x: 0, y: -6, z: 0}
   m_Size: {x: 198, y: 6, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -16091,7 +16081,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 0.9372549, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.14344129, b: 0, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
   m_Size: {x: 112, y: 6, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -16627,8 +16617,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1243303269
+  m_SortingLayer: -3
   m_SortingOrder: -4
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -33509,6 +33499,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: gem-1
       objectReference: {fileID: 0}
+    - target: {fileID: 8317937089843483730, guid: 60c40aa7be66a9242b30516de2993b49, type: 3}
+      propertyPath: m_Color.g
+      value: 0.07661381
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317937089843483730, guid: 60c40aa7be66a9242b30516de2993b49, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8704281700859609728, guid: 60c40aa7be66a9242b30516de2993b49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.010000229
@@ -33753,7 +33751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 3
   range: 7
-  damage: 3
+  damage: 4
   firePoint: {fileID: 589511663242119441}
   fireball:
   - {fileID: 8202637101547949925}
@@ -34017,7 +34015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ca6442b53f8194d807296fc5c1c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 20
+  startingHealth: 30
   components:
   - {fileID: 7285552787530445229}
   - {fileID: 1656395993089410921}
