@@ -8,7 +8,7 @@ public class InteractableObject : MonoBehaviour
 {
     private bool playerInRange = false;
     public GameObject FinishScreen;
-
+    public GameObject InteGuide;
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the player has entered the trigger
@@ -16,6 +16,7 @@ public class InteractableObject : MonoBehaviour
         {
             Debug.Log("Collision");
             playerInRange = true;
+            InteGuide.SetActive(true);
         }
     }
 
@@ -25,13 +26,14 @@ public class InteractableObject : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
+            InteGuide.SetActive(false);
         }
     }
 
     void Update()
     {
         // Check if the player is in range and presses the "F" key
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             LoadNextScene();
         }

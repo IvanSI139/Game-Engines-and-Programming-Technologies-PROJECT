@@ -6,6 +6,7 @@ public class Time_Shift : MonoBehaviour
 {
     public GameObject PastWorld;
     public GameObject FutureWorld;
+    public GameObject InteGuide;
     private bool playerInRange = false;
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class Time_Shift : MonoBehaviour
         {
             playerInRange = true;
             Debug.Log("Player entered range");
+            InteGuide.SetActive(true);
         }
     }
 
@@ -57,6 +59,7 @@ public class Time_Shift : MonoBehaviour
         {
             playerInRange = false;
             Debug.Log("Player left range");
+            InteGuide.SetActive(false);
         }
     }
 }

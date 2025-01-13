@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     private Health currentHealth;
     private Inventory inventory;
     private AudioManager audioManager;
+    public GameObject options;
+    private bool Ostate = false;
 
     private int count;
 
@@ -144,6 +146,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             Attack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Ostate = !Ostate;
+            options.SetActive(Ostate);
         }
 
 
