@@ -55,17 +55,12 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
+        Debug.Log($"Current Health:{currentHealth}");
 
-        if (currentHealth > 0)
-        {
-            //player hurt;
             Particlles();
-        }
-        else
+
+        if (currentHealth <= 0f)
         {
-            if (!dead)
-            {
-                Particlles();
                 anim.SetTrigger("Death");
 
 
@@ -79,7 +74,7 @@ public class EnemyHealth : MonoBehaviour
                     component.enabled = false;
                 }
 
-            }
+            
         }
     }
 

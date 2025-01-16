@@ -800,6 +800,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45419989}
     m_Modifications:
+    - target: {fileID: 1380791768660050958, guid: dfe06bf575ac61e48aa89772c68a1809, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 766794033}
+    - target: {fileID: 1380791768660050958, guid: dfe06bf575ac61e48aa89772c68a1809, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380791768660050958, guid: dfe06bf575ac61e48aa89772c68a1809, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5463727790036804785, guid: dfe06bf575ac61e48aa89772c68a1809, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13548,10 +13560,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 853391282144158845, guid: 8198d44f0c96e6d43a86accf682fb39e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8198d44f0c96e6d43a86accf682fb39e, type: 3}
 --- !u!4 &1039374937 stripped
 Transform:
@@ -32243,7 +32252,8 @@ PrefabInstance:
       value: ToMainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 115161047566068463, guid: dfe06bf575ac61e48aa89772c68a1809, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5463727790036804785, guid: dfe06bf575ac61e48aa89772c68a1809, type: 3}
       insertIndex: 2
@@ -34998,7 +35008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ca6442b53f8194d807296fc5c1c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 30
+  startingHealth: 10
   components:
   - {fileID: 7285552787530445229}
   - {fileID: 1656395993089410921}

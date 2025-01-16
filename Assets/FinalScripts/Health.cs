@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
         
     private void Awake()
     {
-        GameManeger.Instance.Health = this;
+        //GameManeger.Instance.Health = this;
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         dead = false;

@@ -7,6 +7,7 @@ public class Time_Shift : MonoBehaviour
     public GameObject PastWorld;
     public GameObject FutureWorld;
     public GameObject InteGuide;
+    public GameObject TravelScren;
     private bool playerInRange = false;
 
     // Update is called once per frame
@@ -16,29 +17,44 @@ public class Time_Shift : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("E key was pressed");
+            StartCoroutine(TTravel());
 
-            // Toggle the PastWorld's active state
-            if (!PastWorld.activeSelf)
-            {
-                PastWorld.SetActive(true);
-                Debug.Log("Go to past");
-            }
-            else
-            {
-                PastWorld.SetActive(false);
-            }
-
-            // Toggle the FutureWorld's active state
-            if (!FutureWorld.activeSelf)
-            {
-                FutureWorld.SetActive(true);
-                Debug.Log("Go to future");
-            }
-            else
-            {
-                FutureWorld.SetActive(false);
-            }
         }
+    }
+
+    private IEnumerator TTravel()
+    {
+        TravelScren.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+
+        // Toggle the PastWorld's active state
+        if (!PastWorld.activeSelf)
+        {
+            PastWorld.SetActive(true);
+            Debug.Log("Go to past");
+        }
+        else
+        {
+            PastWorld.SetActive(false);
+        }
+
+        // Toggle the FutureWorld's active state
+        if (!FutureWorld.activeSelf)
+        {
+            FutureWorld.SetActive(true);
+            Debug.Log("Go to future");
+        }
+        else
+        {
+            FutureWorld.SetActive(false);
+        }
+
+        yield return new WaitForSeconds(1);
+
+        TravelScren.SetActive(false );
+                                                    
+
     }
 
     // Trigger detection when the player enters the object's collider
